@@ -32,7 +32,7 @@ def cadastrar_registro():
     registro = Registro(nome=nome, idade=idade, email=email)
     db.session.add(registro)
     db.session.commit()
-    return jsonify({'message': 'Registro cadastrado com sucesso!'})
+    return jsonify({'messagem': 'Cadastrado com sucesso!'})
 
 # Rota para Excluir um Registro do Banco de Dados
 @app.route('/registros/<int:id>', methods=['DELETE'])
@@ -41,9 +41,9 @@ def excluir_registro(id):
     if registro:
         db.session.delete(registro)
         db.session.commit()
-        return jsonify({'message': 'Registro excluído com sucesso!'})
+        return jsonify({'message': 'Excluído com sucesso!'})
     else:
-        return jsonify({'message': 'Registro não encontrado!'})
+        return jsonify({'message': 'Encontrado!'})
 
 if __name__ == '__main__':
     app.run(debug=True)
