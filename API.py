@@ -18,13 +18,13 @@ class Registro(db.Model):
         return '<Registro %r>' % self.nome
 
 # Rota para Buscar todos os Registros do Banco de Dados
-@app.route('/registros', methods=['GET'])
+@app.route('/registros/acessar', methods=['GET'])
 def buscar_registros():
     registros = Registro.query.all()
     return jsonify([{'id': registro.id, 'nome': registro.nome, 'idade': registro.idade, 'email': registro.email} for registro in registros])
 
 # Rota para Cadastrar um Registro no Banco de Dados
-@app.route('/registros', methods=['POST'])
+@app.route('/registros/logar', methods=['POST'])
 def cadastrar_registro():
     nome = request.json['nome']
     idade = request.json['idade']
